@@ -1,0 +1,22 @@
+.content__exist-user {
+    display: flex;
+
+    padding: 2.5rem 3.5rem 1.75rem;
+}
+
+.content__user-profile {
+    width: 292px;
+    min-height: 432px;
+
+    margin-right: 5.3rem;
+
+    box-sizing: content-box;
+}
+
+.content__user-repos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    flex-grow: 1;
+}

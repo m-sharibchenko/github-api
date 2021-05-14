@@ -1,0 +1,1 @@
+export { ReposItem } from './Component'

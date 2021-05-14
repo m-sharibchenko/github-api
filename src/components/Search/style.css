@@ -1,0 +1,31 @@
+.app-header__search {
+    display: flex;
+    align-items: center;
+
+    min-width: 31.25rem;
+    height: 2.5rem;
+
+    padding: 0.5rem 0.87rem;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+
+.search-icon {
+    width: 24px;
+    height: 24px;
+
+    margin-right: 6px;
+    padding: 5px;
+
+    color: var(--color-additional);
+}
+
+.app-header__input-search {
+    flex-grow: 1;
+
+    padding: 5px 2px;
+
+    font-size: 14px;
+    letter-spacing: 0.01em;
+}
+

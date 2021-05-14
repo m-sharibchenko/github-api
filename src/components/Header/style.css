@@ -1,0 +1,15 @@
+.app-header {
+    display: flex;
+    align-items: center;
+
+    min-height: 72px;
+    width: 100%;
+
+    background-color: var(--color-main);
+    padding: 0 2.56rem;
+}
+
+.app-header__logo {
+    margin-right: 1.37rem;
+}
+

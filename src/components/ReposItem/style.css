@@ -1,0 +1,19 @@
+.repos-list__repos-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 112px;
+
+    padding: 1.5rem 2rem;
+
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+
+.repos-item__name {
+    color: var(--color-main);
+    font-size: 24px;
+    font-weight: 500;
+}

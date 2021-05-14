@@ -1,0 +1,30 @@
+.content__user-info {
+    width: 100%;
+}
+
+.content__user-name {
+    margin-bottom: 0.75rem;
+
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.content__user-login {
+    margin-bottom: 1.56rem;
+
+    font-size: 18px;
+    color: var(--color-main);
+}
+
+.content__following-wrap {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.content__followers,
+.content__following {
+    display: flex;
+    align-items: center;
+}
