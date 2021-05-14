@@ -1,0 +1,16 @@
+.content__user-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 13.25rem 0;
+}
+
+.user-not-found-icon {
+    margin-bottom: 2.62rem;
+}
+
+.user-not-found-title {
+    font-size: 22px;
+    color: var(--color-additional);
+}

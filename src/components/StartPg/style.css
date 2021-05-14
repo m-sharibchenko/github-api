@@ -1,0 +1,21 @@
+.content__start-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 13.25rem 0;
+}
+
+.start-page-icon {
+    margin-bottom: 2.62rem;
+}
+
+.start-page-title {
+    max-width: 210px;
+
+    text-align: center;
+    line-height: 140%;
+
+    font-size: 22px;
+    color: var(--color-additional);
+}
