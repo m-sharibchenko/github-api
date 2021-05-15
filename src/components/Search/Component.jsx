@@ -21,6 +21,7 @@ export function Search (props) {
           searchUser('not found')
         } else {
           const data = await response.json()
+          console.log(data)
           searchUser(getData(data))
         }
 

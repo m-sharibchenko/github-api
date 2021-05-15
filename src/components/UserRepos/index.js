@@ -1,0 +1,1 @@
+export { UserRepos } from './Component'

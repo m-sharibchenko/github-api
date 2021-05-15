@@ -19,7 +19,7 @@ export function App () {
 
       {data === '' && <StartPage />}
 
-      {typeof data === 'object' && <UserExist />}
+      {typeof data === 'object' && <UserExist data={data}/>}
 
       {data === 'not found' && <UserNotFound />}
 
