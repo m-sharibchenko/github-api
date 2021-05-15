@@ -1,8 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './style.css'
 import { Search } from '../Search'
 
-export function Header () {
+export function Header (props) {
+  const searchUser = (value) => {
+    const { getState } = props
+
+    getState(value)
+  }
+
   return (
     <header className="app-header">
       <img
@@ -11,7 +18,11 @@ export function Header () {
         className="app-header__logo"
       />
 
-      <Search/>
+      <Search searchUser={searchUser}/>
     </header>
   )
+}
+
+Header.propTypes = {
+  getState: PropTypes.func,
 }

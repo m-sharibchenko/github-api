@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header } from './Header'
 import 'normalize.css'
 import { StartPage } from './StartPg'
-// import { UserNotFound } from './UserNotFound'
-// import { UserExist } from './UserExist'
+import { UserNotFound } from './UserNotFound'
+import { UserExist } from './UserExist'
 
-export function App() {
+export function App () {
+  const [ data, setData ] = useState('')
+
+  const getState = (value) => {
+    console.log(value)
+    setData(value)
+  }
+
   return (
     <div className="App">
-      <Header />
-      {/*start page*/}
-      <StartPage />
+      <Header getState={getState} />
 
-      {/*if user was found*/}
-      {/*<UserExist />*/}
+      {data === '' && <StartPage />}
 
+      {typeof data === 'object' && <UserExist />}
 
-      {/*if user not exist*/}
-      {/*<UserNotFound />*/}
+      {data === 'not found' && <UserNotFound />}
+
+      {data === 'error' && <div>Error</div>}
     </div>
-  );
+  )
 }
 
