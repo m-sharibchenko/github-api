@@ -3,18 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-  /*--text-size-title: 36px;*/
-  /*--text-size-description: 14px;*/
   --color-main: #0064EB;
   --background-color: #E5E5E5;
   --color-additional: #808080;
-  /*--color-decoration-elements: #FD8B38;*/
-  /*--font-main: 'Inter', 'Open Sans', 'Roboto', sans-serif;*/
-  /*--font-description: 'Open Sans', 'Arial', sans-serif;*/
-  /*--border-button: 1px solid #FFFFFF;*/
-  /*--text-size-button: 15px;*/
-  /*--margin-title: 0 0 22px 0;*/
-  /*--width-decoration-elements: 64px;*/
 }
 
 html {
@@ -39,6 +30,19 @@ ul {
 body, h1, h2, h3, h4, h5, h6, p, ul, li {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: inherit;
 }
 
 input {

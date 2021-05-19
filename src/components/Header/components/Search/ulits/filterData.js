@@ -1,8 +1,7 @@
-export function getData (obj) {
+export function filterUserInfo (obj) {
   const {
     login,
     name,
-    url,
     avatar_url,
     followers,
     following,
@@ -13,11 +12,21 @@ export function getData (obj) {
   return {
     login,
     name,
-    url,
     avatar_url,
     followers,
     following,
     html_url,
     public_repos
   }
+}
+
+export function filterReposInfo (arr) {
+  return arr.map(({ id, name, html_url, description }) => {
+    return {
+      id,
+      name,
+      html_url,
+      description
+    }
+  })
 }

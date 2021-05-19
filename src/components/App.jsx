@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import { Header } from './Header'
 import 'normalize.css'
 import { StartPage } from './StartPg'
@@ -6,24 +6,24 @@ import { UserNotFound } from './UserNotFound'
 import { UserExist } from './UserExist'
 
 export function App () {
-  const [ data, setData ] = useState('')
+  const [ data, setData ] = useState({user: '', repos: []})
 
-  const getState = (value) => {
+  const getUserData = (value) => {
     console.log(value)
     setData(value)
   }
 
   return (
     <div className="App">
-      <Header getState={getState} />
+      <Header getUserData={getUserData}/>
 
-      {data === '' && <StartPage />}
+      {data.user === '' && <StartPage />}
 
-      {typeof data === 'object' && <UserExist data={data}/>}
+      {typeof data.user === 'object' && <UserExist userData={data}/>}
 
-      {data === 'not found' && <UserNotFound />}
+      {data.user === 'not found' && <UserNotFound />}
 
-      {data === 'error' && <div>Error</div>}
+      {data.user === 'error' && <div>Error</div>}
     </div>
   )
 }

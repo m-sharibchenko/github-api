@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { getData } from './ulits/getData'
 import './style.css'
+import { getUserData } from './ulits/getUserData'
+import { getUserRepos } from './ulits/getUserRepos'
 
 export function Search (props) {
   const [ input, setInput ] = useState('')
@@ -14,20 +15,9 @@ export function Search (props) {
     const { searchUser } = props
 
     if (evt.code === 'Enter') {
-      try {
-        const response = await fetch(`https://api.github.com/users/${input}`)
-
-        if (response.status === 404) {
-          searchUser('not found')
-        } else {
-          const data = await response.json()
-          console.log(data)
-          searchUser(getData(data))
-        }
-
-      } catch (error) {
-        searchUser('error')
-      }
+      const data = await Promise.all([getUserData(input), getUserRepos(input)])
+      const result = { ...data[0], ...data[1] }
+      searchUser(result)
 
       setInput('')
     }
@@ -56,3 +46,9 @@ export function Search (props) {
 Search.propTypes = {
   searchUser: PropTypes.func,
 }
+
+
+
+
+// arr = [{a: 4}, {b: 8}] => {a:4, b:8}
+// obj = {...arr[0], ...arr[1]}

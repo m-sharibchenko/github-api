@@ -1,24 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
-import { UserPhoto } from '../UserPhoto'
-import { UserInfo } from '../UserInfo'
-import { UserRepos } from '../UserRepos'
-import { NoRepos } from '../NoRepos'
+import { UserPhoto } from './components/UserPhoto'
+import { UserInfo } from './components/UserInfo'
+import { UserRepos } from './components/UserRepos'
+import { NoRepos } from './components/NoRepos'
 
 export function UserExist (props) {
-  const { data } = props
+  const { userData } = props
 
   return (
     <div className="content__exist-user">
       <div className="content__user-profile">
-        <UserPhoto photoUrl={data.avatar_url}/>
-        <UserInfo data={data}/>
+        <UserPhoto photoUrl={userData.user.avatar_url}/>
+        <UserInfo info={userData.user}/>
       </div>
 
       <div className="content__user-repos">
-        {data.public_repos > 0 ?
-          <UserRepos data={data}/>
+        {userData.user.public_repos > 0 ?
+          <UserRepos repos={userData.repos}
+                     reposCount={userData.user.public_repos}
+          />
           : <NoRepos />
         }
       </div>
@@ -27,14 +29,21 @@ export function UserExist (props) {
 }
 
 UserExist.propTypes = {
-  data: PropTypes.shape({
-    avatar_url: PropTypes.string,
-    followers: PropTypes.number,
-    following: PropTypes.number,
-    html_url: PropTypes.string,
-    login: PropTypes.string,
-    name: PropTypes.string,
-    public_repos: PropTypes.number,
-    url: PropTypes.string,
+  userData: PropTypes.shape({
+    user: PropTypes.shape({
+      avatar_url: PropTypes.string,
+      followers: PropTypes.number,
+      following: PropTypes.number,
+      html_url: PropTypes.string,
+      login: PropTypes.string,
+      name: PropTypes.string,
+      public_repos: PropTypes.number,
+    }),
+    repos: PropTypes.arrayOf(PropTypes.shape({
+      html_url: PropTypes.string,
+      id: PropTypes.number,
+      name: PropTypes.string,
+      description: PropTypes.string,
+    }))
   })
 }

@@ -27,4 +27,9 @@
 .content__following {
     display: flex;
     align-items: center;
+
+}
+
+.following-wrap__img {
+    margin-right: 0.5rem;
 }

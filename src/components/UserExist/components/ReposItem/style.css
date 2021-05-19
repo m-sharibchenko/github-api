@@ -12,6 +12,10 @@
     background-color: #FFFFFF;
 }
 
+.repos-list__repos-item:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
 .repos-item__name {
     color: var(--color-main);
     font-size: 24px;

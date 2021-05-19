@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
-import { Search } from '../Search'
+import { Search } from './components/Search'
 
 export function Header (props) {
   const searchUser = (value) => {
-    const { getState } = props
-
-    getState(value)
+    const { getUserData } = props
+    getUserData(value)
   }
 
   return (
@@ -24,5 +23,5 @@ export function Header (props) {
 }
 
 Header.propTypes = {
-  getState: PropTypes.func,
+  getUserData: PropTypes.func,
 }
