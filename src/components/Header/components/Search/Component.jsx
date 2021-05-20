@@ -12,9 +12,11 @@ export function Search (props) {
   }
 
   const onSearch = async (evt) => {
-    const { searchUser } = props
+    const { searchUser, showSpin } = props
 
     if (evt.code === 'Enter') {
+      showSpin(true)
+
       const userData = await getUserData(input)
       let result
 

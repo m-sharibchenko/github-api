@@ -9,6 +9,11 @@ export function Header (props) {
     getUserData(value)
   }
 
+  const showSpin = (bool) => {
+    const { showSpin } = props
+    showSpin(bool)
+  }
+
   return (
     <header className="app-header">
       <img
@@ -17,7 +22,7 @@ export function Header (props) {
         className="app-header__logo"
       />
 
-      <Search searchUser={searchUser}/>
+      <Search searchUser={searchUser} showSpin={showSpin}/>
     </header>
   )
 }
