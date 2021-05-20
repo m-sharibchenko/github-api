@@ -5,7 +5,7 @@
 }
 
 .content__user-profile {
-    width: 292px;
+    min-width: 292px;
     min-height: 432px;
 
     margin-right: 5.3rem;

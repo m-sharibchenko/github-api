@@ -4,14 +4,15 @@ import './style.css'
 import { getReposItems } from './utils/getReposItems'
 import { showReposOnPg } from './utils/showReposOnPg'
 import { findPageCount } from './utils/findPageCount'
+import { firstPage } from './utils/constants'
 
 export function Pagination (props) {
   const { reposCount, initialPage } = props
 
-  const [ activePage, setActivePage ] = useState(1)
+  const [ activePage, setActivePage ] = useState(firstPage)
 
   useEffect(() => {
-    setActivePage(1)
+    setActivePage(firstPage)
   }, [reposCount])
 
   const onPageChange = (evt) => {
@@ -30,8 +31,12 @@ export function Pagination (props) {
         pageRangeDisplayed={2}
         marginPagesDisplayed={1}
         onPageChange={onPageChange}
-        previousLabel={<img src='./icons/prev.svg' alt="Previous" />}
-        nextLabel={<img src='./icons/next.svg' alt="Next" />}
+        previousLabel={activePage !== firstPage
+          ? <img src='./icons/prev-active.svg' alt="Previous" />
+          : <img src='./icons/prev.svg' alt="Previous" />}
+        nextLabel={activePage !== findPageCount(reposCount)
+          ? <img src='./icons/next-active.svg' alt="Previous" />
+          : <img src='./icons/next.svg' alt="Next" />}
         breakLabel={'...'}
         containerClassName="pagination-list"
         pageClassName="pagination-page"
