@@ -15,8 +15,17 @@ export function Search (props) {
     const { searchUser } = props
 
     if (evt.code === 'Enter') {
-      const data = await Promise.all([getUserData(input), getUserRepos(input)])
-      const result = { ...data[0], ...data[1] }
+      const userData = await getUserData(input)
+      let result
+
+      if (userData.public_repos > 0) {
+        const reposData = await getUserRepos(input, userData.public_repos)
+        result = { ...userData, ...reposData }
+
+      } else {
+        result = userData
+      }
+
       searchUser(result)
 
       setInput('')
@@ -46,9 +55,3 @@ export function Search (props) {
 Search.propTypes = {
   searchUser: PropTypes.func,
 }
-
-
-
-
-// arr = [{a: 4}, {b: 8}] => {a:4, b:8}
-// obj = {...arr[0], ...arr[1]}

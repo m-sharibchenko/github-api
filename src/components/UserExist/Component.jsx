@@ -12,14 +12,14 @@ export function UserExist (props) {
   return (
     <div className="content__exist-user">
       <div className="content__user-profile">
-        <UserPhoto photoUrl={userData.user.avatar_url}/>
-        <UserInfo info={userData.user}/>
+        <UserPhoto photoUrl={userData.avatar_url}/>
+        <UserInfo info={userData}/>
       </div>
 
       <div className="content__user-repos">
-        {userData.user.public_repos > 0 ?
+        {userData.public_repos > 0 ?
           <UserRepos repos={userData.repos}
-                     reposCount={userData.user.public_repos}
+                     reposCount={userData.public_repos}
           />
           : <NoRepos />
         }

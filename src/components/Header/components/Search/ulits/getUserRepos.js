@@ -1,20 +1,32 @@
 import { filterReposInfo } from './filterData'
+import { pagesForFetch, reposPerPage } from './constants'
 
-export async function getUserRepos (input) {
+async function fetchRepos (user, page, reposPerPage) {
   try {
-    const response = await fetch(`https://api.github.com/users/${input}/repos`)
+    const response = await fetch(`https://api.github.com/users/${user}/repos?per_page=${reposPerPage}&page=${page}`)
 
-    if (!response.ok) {
-      return {repos: 'not found'}
-
-    } else {
-      const repos = await response.json()
-
-      return {repos: filterReposInfo(repos)}
-    }
+    return await response.json()
 
   } catch (error) {
-    return {repos: 'error'}
+    return 'error'
+  }
+}
+
+export async function getUserRepos (user, repos) {
+  const arr = []
+
+  for (let i = 1; i <= pagesForFetch(repos); i++) {
+    arr.push(fetchRepos(user, i, reposPerPage))
+  }
+
+  try {
+    const response = await Promise.all(arr)
+    const repos = response.flat()
+
+    return { repos: filterReposInfo(repos) }
+
+  } catch (error) {
+    return { repos: 'error' }
   }
 }
 

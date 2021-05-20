@@ -6,7 +6,7 @@ import { UserNotFound } from './UserNotFound'
 import { UserExist } from './UserExist'
 
 export function App () {
-  const [ data, setData ] = useState({user: '', repos: []})
+  const [ data, setData ] = useState({ login: ''})
 
   const getUserData = (value) => {
     console.log(value)
@@ -17,13 +17,11 @@ export function App () {
     <div className="App">
       <Header getUserData={getUserData}/>
 
-      {data.user === '' && <StartPage />}
+      {data.login === '' && <StartPage />}
 
-      {typeof data.user === 'object' && <UserExist userData={data}/>}
+      {data.login !== '' && data.login !== 'not found' && <UserExist userData={data}/>}
 
-      {data.user === 'not found' && <UserNotFound />}
-
-      {data.user === 'error' && <div>Error</div>}
+      {data.login === 'not found' && <UserNotFound />}
     </div>
   )
 }
