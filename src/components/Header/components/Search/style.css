@@ -29,3 +29,18 @@
     letter-spacing: 0.01em;
 }
 
+@media (max-width: 647px) {
+    .app-header__search {
+        min-width: 12.5rem;
+    }
+}
+
+@media (max-width: 474px) {
+    .app-header__search {
+        padding: 0 0.1rem;
+    }
+
+    .search-icon {
+        margin-right: 3px;
+    }
+}

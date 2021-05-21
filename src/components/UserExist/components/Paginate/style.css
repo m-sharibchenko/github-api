@@ -39,6 +39,10 @@
     cursor: pointer;
 }
 
+.none-active {
+    cursor: default;
+}
+
 .pagination-active-page,
 .pagination-page:hover {
     border-radius: 3px;
@@ -55,6 +59,24 @@
     text-align: center;
 }
 
-.none-active {
-    cursor: default;
+@media (max-width: 920px) {
+    .pagination-page,
+    .pagination-break,
+    .pagination-previous,
+    .pagination-info {
+        margin-right: 0.3rem;
+    }
+}
+
+@media (max-width: 474px) {
+    .pagination-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+
+        min-width: 300px;
+    }
+
+    .pagination-info {
+        margin: 0 0 0.7rem 0;
+    }
 }

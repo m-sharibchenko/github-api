@@ -19,6 +19,7 @@
 .content__following-wrap {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     width: 100%;
 }
@@ -32,4 +33,26 @@
 
 .following-wrap__img {
     margin-right: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    .content__user-info {
+        width: inherit;
+    }
+}
+
+@media (max-width: 647px) {
+    .content__user-login {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 474px) {
+    .content__user-info {
+        width: 150px;
+    }
+
+    .content__user-name {
+        font-size: 20px;
+    }
 }
