@@ -1,6 +1,6 @@
 This is the application for search users and their repos on gitHub.
 
-To see the deployment, go to the link: 
+To see the deployment, go to the link: https://github-api-kappa.vercel.app/
 
 Also in the project directory on your computer, you can run:
 
