@@ -41,8 +41,12 @@ export function Pagination (props) {
         containerClassName="pagination-list"
         pageClassName="pagination-page"
         breakClassName="pagination-break"
-        previousClassName="pagination-previous"
-        nextClassName="pagination-next"
+        previousClassName={activePage !== firstPage
+          ? "pagination-previous"
+          : "pagination-previous none-active"}
+        nextClassName={activePage !== findPageCount(reposCount)
+          ? "pagination-next"
+          : "pagination-next none-active"}
         activeClassName="pagination-active-page"
         pageLinkClassName="pagination-link"
         previousLinkClassName="pagination-link"

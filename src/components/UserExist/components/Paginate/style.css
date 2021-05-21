@@ -54,3 +54,7 @@
 
     text-align: center;
 }
+
+.none-active {
+    cursor: default;
+}
