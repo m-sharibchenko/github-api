@@ -1,4 +1,4 @@
-This is the application for search users and their repos on gitHub.
+This is the application for searching users and their repos on gitHub.
 
 To see the deployment, go to the link: https://github-api-kappa.vercel.app/
 
